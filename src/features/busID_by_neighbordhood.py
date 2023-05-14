@@ -18,4 +18,7 @@ def busIDByNeighbordhood(DSTs, neighborhoodName):
 
     #media do valor de co2 g/s dos onibus que passam pelo bairro:
     media = df_final['CO_2'].mean()
-    return media
+
+    #numero de onibus que passam pelo bairro:
+    num = len(df_final)
+    return num
