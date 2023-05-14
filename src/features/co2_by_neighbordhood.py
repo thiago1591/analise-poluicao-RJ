@@ -2,18 +2,11 @@ import pandas as pd
 import numpy as np
 
 def co2ByNeighbordhood(DSTs):
-    counties = pd.read_csv('bairros.csv')[['NOME', 'CODBAIRRO']]
-
     intervals = [ dstD[['ID', 'INTERVAL']] for dstD in DSTs['dstD']]
-
-    neighborhoods = [ dstB[['ID', 'CODBAIRRO']] for dstB in DSTs['dstB']]
-
-    neighborhoods = [neighborhood.dropna(subset=['CODBAIRRO']) for neighborhood in neighborhoods]
-
-    neighborhoodsWithNames = [pd.merge(neighborhood.astype('int64'), counties, on='CODBAIRRO', how='left') for neighborhood in neighborhoods]
+    neighborhood = [ dstB[['ID', 'NOME']] for dstB in DSTs['dstB']]
 
     dfs = [pd.merge(DSTs['dstE'][i], intervals[i], on='ID', how='left') for i in range(len(intervals))]
-    dfs = [pd.merge(dfs[i], neighborhoodsWithNames[i], on='ID', how='left') for i in range(len(neighborhoodsWithNames))]
+    dfs = [pd.merge(dfs[i], neighborhood[i], on='ID', how='left') for i in range(len(neighborhood))]
 
     for df in dfs:
         df['INTERVAL'] = df['INTERVAL'].dt.total_seconds()
