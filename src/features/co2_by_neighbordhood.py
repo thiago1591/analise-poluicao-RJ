@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-def findPollutionByNeighborhoodByDays(DSTs):
+def co2ByNeighbordhood(DSTs):
     counties = pd.read_csv('bairros.csv')[['NOME', 'CODBAIRRO']]
 
     intervals = [ dstD[['ID', 'INTERVAL']] for dstD in DSTs['dstD']]
