@@ -6,4 +6,6 @@ def addNeighborhoodName(dstB):
     neighborhoods = [neighborhood.dropna(subset=['CODBAIRRO']) for neighborhood in neighborhoods]
     neighborhoodsWithNames = [pd.merge(neighborhood.astype('int64'), counties, on='CODBAIRRO', how='left') for neighborhood in neighborhoods]
     dfs = [pd.merge(dstB[i], neighborhoodsWithNames[i], on='ID', how='left') for i in range(len(neighborhoodsWithNames))]
+    dfs = [df.dropna(subset=['NOME']) for df in dfs]
+    dfs = [df.assign(NOME=df['NOME'].str.strip()) for df in dfs]
     return dfs
