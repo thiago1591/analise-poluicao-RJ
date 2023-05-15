@@ -1,6 +1,6 @@
 
 
-from src.features.co2_by_neighbordhood import *
+from src.features.pollution_by_neighbordhood import *
 from src.features.filter_by_timerange import *
 from src.visualization.pollution_by_neighborhood import *
 

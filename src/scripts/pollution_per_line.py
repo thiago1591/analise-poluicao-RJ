@@ -1,5 +1,5 @@
 from src.features.filter_by_timerange import filterByTimerange
-from src.features.co2_per_line import *
+from src.features.pollution_per_line import *
 from src.visualization.pollution_per_line import *
 
 def getCo2PerLine():
