@@ -15,6 +15,7 @@ def co2PerBusID(DSTs):
     
     dfs_concat = pd.concat(dfs)
     final_mean = dfs_concat.groupby('BUSID')['CO_2'].mean().reset_index()
+    final_mean = final_mean.sort_values(by='CO_2', ascending=False)
     return final_mean
 
 def coPerBusID(DSTs):
@@ -27,11 +28,12 @@ def coPerBusID(DSTs):
     dfs = [pd.merge(dstA[i], neighborhood[i], on='ID', how='left') for i in range(len(neighborhood))]
     dfs = [pd.merge(dfs[i], co2[i], on='ID', how='left') for i in range(len(co2))]
     
-    dfs = [df.groupby('BUSID').mean(numeric_only=True).round() for df in dfs]
+    dfs = [df.groupby('BUSID').mean(numeric_only=True) for df in dfs]
     dfs = [df.sort_values(by='CO', ascending=False) for df in dfs]
     
     dfs_concat = pd.concat(dfs)
     final_mean = dfs_concat.groupby('BUSID')['CO'].mean().reset_index()
+    final_mean = final_mean.sort_values(by='CO', ascending=False)
     return final_mean
 
 def noxPerBusID(DSTs):
@@ -44,9 +46,10 @@ def noxPerBusID(DSTs):
     dfs = [pd.merge(dstA[i], neighborhood[i], on='ID', how='left') for i in range(len(neighborhood))]
     dfs = [pd.merge(dfs[i], co2[i], on='ID', how='left') for i in range(len(co2))]
     
-    dfs = [df.groupby('BUSID').mean(numeric_only=True).round() for df in dfs]
+    dfs = [df.groupby('BUSID').mean(numeric_only=True) for df in dfs]
     dfs = [df.sort_values(by='NO_x', ascending=False) for df in dfs]
     
     dfs_concat = pd.concat(dfs)
     final_mean = dfs_concat.groupby('BUSID')['NO_x'].mean().reset_index()
+    final_mean = final_mean.sort_values(by='NO_x', ascending=False)
     return final_mean

@@ -87,7 +87,7 @@ def plotTopNoxNeighbordhoodWeekend(df_media, limit):
 
 def plotTopNoxNeighbordhoodWeek(df_media, limit):
     co2_mean = df_media.head(limit)
-    plt.bar(co2_mean['NOME'], co2_mean['MEDIA_NOx'])
+    plt.bar(co2_mean['NOME'], co2_mean['MEDIA_NO_x'])
     plt.xlabel('Nome do Bairro')
     plt.ylabel('gramas de NOx')
     plt.title('Média total de NOx por bairro em dias úteis')

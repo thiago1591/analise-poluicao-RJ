@@ -4,7 +4,7 @@ from src.scripts.time_per_neighborhood import *
 from src.scripts.pollution_per_line import *
 
 def main():
-    reportRequestList = [8]
+    reportRequestList = [13]
     generateReport(reportRequestList)
   
 def generateReport(reportRequestList):
@@ -26,7 +26,16 @@ def generateReport(reportRequestList):
         getCoPerLine()
     if 8 in reportRequestList:
         getNoxPerLine()
-
+    if 9 in reportRequestList:
+        top3CoNeighbordhood()
+    if 10 in reportRequestList:
+        top3CONeighbordhoodInWeekend()
+    if 11 in reportRequestList:
+        top3NoxNeighbordhoodInWeek()
+    if 12 in reportRequestList:
+        top3NoxNeighbordhood()
+    if 13 in reportRequestList:
+        top3NoxNeighbordhoodInWeekend()
 
 main()
 print('success!')

@@ -26,7 +26,7 @@ def coPerLine(DSTs):
     dfs = [pd.merge(dstA[i], neighborhood[i], on='ID', how='left') for i in range(len(neighborhood))]
     dfs = [pd.merge(dfs[i], co[i], on='ID', how='left') for i in range(len(co))]
     
-    dfs = [df.groupby('LINE').mean(numeric_only=True).round() for df in dfs]
+    dfs = [df.groupby('LINE').mean(numeric_only=True) for df in dfs]
     dfs = [df.sort_values(by='CO', ascending=False) for df in dfs]
     
     dfs_concat = pd.concat(dfs)
@@ -43,7 +43,7 @@ def noxPerLine(DSTs):
     dfs = [pd.merge(dstA[i], neighborhood[i], on='ID', how='left') for i in range(len(neighborhood))]
     dfs = [pd.merge(dfs[i], nox[i], on='ID', how='left') for i in range(len(nox))]
     
-    dfs = [df.groupby('LINE').mean(numeric_only=True).round() for df in dfs]
+    dfs = [df.groupby('LINE').mean(numeric_only=True) for df in dfs]
     dfs = [df.sort_values(by='NO_x', ascending=False) for df in dfs]
     
     dfs_concat = pd.concat(dfs)

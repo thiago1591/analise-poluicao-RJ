@@ -20,19 +20,19 @@ def pollutionByNeighbordhood(DSTs):
     df_cos = [df.loc[:, ['ID', 'NOME', 'CO_total']] for df in dfs]
     df_noxs = [df.loc[:, ['ID', 'NOME', 'NO_x_total']] for df in dfs]
 
-    df_co2_medias = [df_co2.groupby('NOME').mean(numeric_only=True).round() for df_co2 in df_co2s]
+    df_co2_medias = [df_co2.groupby('NOME').sum(numeric_only=True) for df_co2 in df_co2s]
 
     for i in range(len(df_co2_medias)):
         df_co2_medias[i] = df_co2_medias[i].rename(columns={'CO2_total': 'MEDIA_CO2'})
         df_co2_medias[i] = df_co2_medias[i].reset_index()
 
-        df_co_medias = [df_co.groupby('NOME').mean(numeric_only=True).round() for df_co in df_cos]
+    df_co_medias = [df_co.groupby('NOME').sum(numeric_only=True) for df_co in df_cos]
 
     for i in range(len(df_co_medias)):
         df_co_medias[i] = df_co_medias[i].rename(columns={'CO_total': 'MEDIA_CO'})
         df_co_medias[i] = df_co_medias[i].reset_index()
 
-    df_nox_medias = [df_co.groupby('NOME').mean(numeric_only=True).round() for df_co in df_noxs]
+    df_nox_medias = [df_co.groupby('NOME').sum(numeric_only=True) for df_co in df_noxs]
 
     for i in range(len(df_nox_medias)):
         df_nox_medias[i] = df_nox_medias[i].rename(columns={'NO_x_total': 'MEDIA_NO_x'})
