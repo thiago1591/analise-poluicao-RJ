@@ -9,4 +9,3 @@ def plotCo2PerLine(df_media, limit):
     plt.ylabel('CO2 g/s')
     plt.title('Média de CO2 (g/s) por linha')
     plt.savefig('reports/figures/topCo2PerLine.png')
-    plt.show()

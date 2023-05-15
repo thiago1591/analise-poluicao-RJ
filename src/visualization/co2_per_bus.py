@@ -9,4 +9,3 @@ def plotCo2PerBus(df_media, limit):
     plt.ylabel('CO2 g/s')
     plt.title('Média de CO2 (g/s) por ônibus')
     plt.savefig('reports/figures/topCo2PerBus.png')
-    plt.show()

@@ -8,4 +8,3 @@ def plotTimePerNeighborhood(df_media, limit):
     plt.xlabel('Nome do Bairro')
     plt.ylabel('gramas de CO2')
     plt.title('Média total de CO2 por bairro em')
-    plt.show()
