@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-def co2ByNeighbordhood(DSTs):
+def pollutionByNeighbordhood(DSTs):
     intervals = [ dstD[['ID', 'INTERVAL']] for dstD in DSTs['dstD']]
     neighborhood = [ dstB[['ID', 'NOME']] for dstB in DSTs['dstB']]
 

@@ -7,4 +7,12 @@ def getCo2PerLine():
     df = co2PerLine(DSTs)
     plotCo2PerLine(df, 3)
 
-    return df
+def getCoPerLine():
+    DSTs = filterByTimerange('2022-02-10', '2022-02-19')
+    df = coPerLine(DSTs)
+    plotCoPerLine(df, 3)
+
+def getNoxPerLine():
+    DSTs = filterByTimerange('2022-02-10', '2022-02-19')
+    df = noxPerLine(DSTs)
+    plotNoxPerLine(df, 3)

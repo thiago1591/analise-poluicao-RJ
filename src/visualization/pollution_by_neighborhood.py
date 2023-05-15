@@ -32,11 +32,9 @@ def plotTopCo2NeighbordhoodCompareWeekAndWeekend(df_media_week, df_media_weekend
     coluna_comum = 'MEDIA_CO2'
     categorias = df_media_week[coluna_comum].unique()
 
-    # Alturas das barras para cada categoria
     altura_df1 = df_media_week.groupby(coluna_comum).size()
     altura_df2 = df_media_weekend.groupby(coluna_comum).size()
 
-    # Posições das barras no eixo X
     x = range(len(categorias))
 
     plt.bar(x, altura_df1, label='DataFrame 1')
@@ -47,18 +45,50 @@ def plotTopCo2NeighbordhoodCompareWeekAndWeekend(df_media_week, df_media_weekend
     plt.ylabel('Contagem')
     plt.title('Comparação entre DataFrames')
 
-def plotCOBarGraph(df_media, limit):
+def plotTopCoNeighbordhood(df_media, limit):
     co_mean = df_media.head(limit)
     plt.bar(co_mean['NOME'], co_mean['MEDIA_CO'])
     plt.xlabel('Nome do Bairro')
     plt.ylabel('gramas de CO')
-    plt.title('Média total de CO por bairro (durante uma semana)')
+    plt.title('Média total de CO por bairro')
+    plt.savefig('reports/figures/topCoNeighbordhood.png')
 
+def plotTopCoNeighbordhoodWeekend(df_media, limit):
+    co_mean = df_media.head(limit)
+    plt.bar(co_mean['NOME'], co_mean['MEDIA_CO'])
+    plt.xlabel('Nome do Bairro')
+    plt.ylabel('gramas de CO')
+    plt.title('Média total de CO por bairro no final de semana')
+    plt.savefig('reports/figures/topCoNeighbordhoodWeekend.png')
 
-def plotNoxBarGraph(pollutionDfs):
-    nox_by_neighborhood_df = pollutionDfs['nox_by_neighborhood_df']
+def plotTopCoNeighbordhoodWeek(df_media, limit):
+    co2_mean = df_media.head(limit)
+    plt.bar(co2_mean['NOME'], co2_mean['MEDIA_CO'])
+    plt.xlabel('Nome do Bairro')
+    plt.ylabel('gramas de CO')
+    plt.title('Média total de CO por bairro em dias úteis')
+    plt.savefig('reports/figures/topCONeighbordhoodWeek.png')
 
-    plt.bar(nox_by_neighborhood_df['CODBAIRRO'],
-            nox_by_neighborhood_df['MEDIA_NO_x'])
-    plt.xlabel('ID do Bairro')
+def plotTopNoxNeighbordhood(df_media, limit):
+    nox_mean = df_media.head(limit)
+    plt.bar(nox_mean['NOME'], nox_mean['MEDIA_NO_x'])
+    plt.xlabel('Nome do Bairro')
     plt.ylabel('gramas de NOx')
+    plt.title('Média total de NOx por bairro')
+    plt.savefig('reports/figures/topNoXNeighbordhood.png')
+
+def plotTopNoxNeighbordhoodWeekend(df_media, limit):
+    nox_mean = df_media.head(limit)
+    plt.bar(nox_mean['NOME'], nox_mean['MEDIA_NO_x'])
+    plt.xlabel('Nome do Bairro')
+    plt.ylabel('gramas de NOx')
+    plt.title('Média total de NOx por bairro no final de semana')
+    plt.savefig('reports/figures/topNOxNeighbordhoodWeekend.png')
+
+def plotTopNoxNeighbordhoodWeek(df_media, limit):
+    co2_mean = df_media.head(limit)
+    plt.bar(co2_mean['NOME'], co2_mean['MEDIA_NOx'])
+    plt.xlabel('Nome do Bairro')
+    plt.ylabel('gramas de NOx')
+    plt.title('Média total de NOx por bairro em dias úteis')
+    plt.savefig('reports/figures/topNOxNeighbordhoodWeek.png')
