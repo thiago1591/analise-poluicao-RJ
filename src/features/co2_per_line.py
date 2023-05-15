@@ -14,5 +14,6 @@ def co2PerLine(DSTs):
     
     dfs_concat = pd.concat(dfs)
     final_mean = dfs_concat.groupby('LINE')['CO_2'].mean().reset_index()
+    final_mean = final_mean.sort_values(by='CO_2', ascending=False)
     return final_mean
     
