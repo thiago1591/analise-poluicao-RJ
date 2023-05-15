@@ -1,7 +1,7 @@
-from src.scripts.co2_per_bus import getCo2PerBus
-from src.scripts.top_co2_neighborhood import *
+from src.scripts.pollution_per_bus import getCo2PerBus
+from src.scripts.top_pollution_neighborhood import *
 from src.scripts.time_per_neighborhood import *
-from src.scripts.co2_per_line import *
+from src.scripts.pollution_per_line import *
 
 def main():
     reportRequestList = [4]
