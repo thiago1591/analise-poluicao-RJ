@@ -55,12 +55,12 @@ def top3CONeighbordhoodInWeekend():
 
     plotTopCoNeighbordhoodWeekend(df_means['co_mean'], 3)
 
-def top3NoxNeighbordhoodInWeek():
+def top3CONeighbordhoodInWeek():
     DSTs = filterByTimerange('2022-02-14', '2022-02-18')
 
     df_means = pollutionByNeighbordhood(DSTs)
 
-    plotTopCo2NeighbordhoodWeek(df_means['nox_mean'], 3)
+    plotTopCoNeighbordhoodWeek(df_means['co_mean'], 3)
 
 def top3NoxNeighbordhood():
     DSTs = filterByTimerange('2022-02-10', '2022-02-19')

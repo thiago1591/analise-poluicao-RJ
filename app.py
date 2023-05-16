@@ -4,7 +4,7 @@ from src.scripts.time_per_neighborhood import *
 from src.scripts.pollution_per_line import *
 
 def main():
-    reportRequestList = [13]
+    reportRequestList = [14]
     generateReport(reportRequestList)
   
 def generateReport(reportRequestList):
@@ -36,6 +36,8 @@ def generateReport(reportRequestList):
         top3NoxNeighbordhood()
     if 13 in reportRequestList:
         top3NoxNeighbordhoodInWeekend()
+    if 14 in reportRequestList:
+        top3CONeighbordhoodInWeek()
 
 main()
 print('success!')
